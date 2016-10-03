@@ -1,17 +1,17 @@
 import Foundation
 
-public class Game
+open class Game
 {
-    var rolls = [Int](count: 21, repeatedValue: 0)
+    var rolls = [Int](repeating: 0, count: 21)
     var currentRoll = 0
     
-    public func roll(pins: Int)
+    open func roll(_ pins: Int)
     {
         rolls[currentRoll] = pins
         currentRoll += 1
     }
     
-    public func computeScore() -> Int
+    open func computeScore() -> Int
     {
         var score = 0
         var frameIndex = 0
@@ -37,27 +37,27 @@ public class Game
         return score
     }
     
-    func sumOfBallsInFrame(frameIndex: Int) -> Int
+    func sumOfBallsInFrame(_ frameIndex: Int) -> Int
     {
         return rolls[frameIndex] + rolls[frameIndex + 1]
     }
     
-    func spareBonus(frameIndex: Int) -> Int
+    func spareBonus(_ frameIndex: Int) -> Int
     {
         return rolls[frameIndex + 2]
     }
     
-    func strikeBonus(frameIndex: Int) -> Int
+    func strikeBonus(_ frameIndex: Int) -> Int
     {
         return rolls[frameIndex + 1] + rolls[frameIndex + 2]
     }
     
-    func isStrike(frameIndex: Int) -> Bool
+    func isStrike(_ frameIndex: Int) -> Bool
     {
         return rolls[frameIndex] == 10
     }
     
-    func isSpare(frameIndex: Int) -> Bool
+    func isSpare(_ frameIndex: Int) -> Bool
     {
         return rolls[frameIndex] + rolls[frameIndex + 1] == 10
     }

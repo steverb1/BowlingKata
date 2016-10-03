@@ -58,7 +58,7 @@ class BowlingTests: XCTestCase
         XCTAssertEqual(300, game.computeScore())
     }
     
-    private func rollMany(times: Int, pins: Int)
+    fileprivate func rollMany(_ times: Int, pins: Int)
     {
         for _ in 1...times
         {
@@ -66,12 +66,12 @@ class BowlingTests: XCTestCase
         }
     }
     
-    private func rollStrike()
+    fileprivate func rollStrike()
     {
         game.roll(10)
     }
     
-    private func rollSpare()
+    fileprivate func rollSpare()
     {
         game.roll(5)
         game.roll(5)
